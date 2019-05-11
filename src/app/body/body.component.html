@@ -1,22 +1,23 @@
-<!--<input placeholder="Enter query" [(ngModel)]="query" >-->
-<!--<button (click)="onclick()" >Click here..!!</button>-->
 
-
-
-<h3 *ngIf="!!query && demodoughnutChartData.length > 0" style="text-align:center">Positive & Negative Tweets about {{query}}</h3>
+<div *ngIf="showLoader" class="lds-ellipsis">Mining<div></div><div></div><div></div><div></div></div>
 
 <form (ngSubmit)="onclick('#cardForGraph')" >
-<div class="container mt-3">
-<div class="input-group mb-3">
-  <input type="text" name="query" class="form-control" placeholder="Enter query" [(ngModel)]="query" >
-  <div class="input-group-append">
-    <button class="btn btn-success" type="submit">Go</button>
-  </div></div>
-</div>
+  <div class="container mt-3">
+    <div class="input-group mb-3">
+      <input type="text" name="query" class="form-control" placeholder="Enter query" [(ngModel)]="query" >
+      <div class="input-group-append">
+        <button class="btn btn-success" type="submit">Go</button>
+        <button type="button" *ngIf="!!query && demodoughnutChartData.length > 0 && !showLoader" class="btn btn-primary" (click)="captureScreen()" >Save to PDF</button>
+      </div></div>
+  </div>
 </form>
-<div class="container" *ngIf="!!query && demodoughnutChartData.length > 0" id="cardForGraph">
+<div id="contentToConvert" >
+<div *ngIf="!!query && demodoughnutChartData.length > 0 && !showLoader" style="text-align:center">Positive & Negative Tweets about <span class="query">{{query}}</span></div>
+
+
+<div class="container" *ngIf="!!query && demodoughnutChartData.length > 0 && !showLoader" id="cardForGraph">
   <div class="row">
-    <div class="col-12">
+    <div class="col-md-12">
       <div class="card">
         <div class="card-body">
           <canvas baseChart
@@ -31,5 +32,6 @@
   </div>
 </div>
 
+</div>
 
 

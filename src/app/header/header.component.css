@@ -1,6 +1,22 @@
 .header {
-  background-color: antiquewhite;
+  background-color: #28a745;
+  height: 100px;
 }
 .header h1 {
   text-transform: uppercase;
+  text-align: center;
+  height: 90px;
+  line-height: 100px;
+  text-align: center;
+}
+.title {
+  text-transform: uppercase;
+  text-align: center;
+  height: 90px;
+  line-height: 100px;
+  text-align: center;
+}
+.header img {
+  height: 75px;
+  width: 75px;
 }
